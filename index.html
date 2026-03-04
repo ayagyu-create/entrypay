@@ -1035,7 +1035,7 @@ address { font-style: normal; }
   text-align: center;
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 960px;
   margin-inline: auto;
 }
 
@@ -1097,6 +1097,52 @@ address { font-style: normal; }
   content: '✓';
   color: var(--c-accent);
   font-weight: 900;
+}
+
+/* Analysis service — detail cards */
+.new-service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+  text-align: left;
+}
+
+.new-service-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--r-xl);
+  padding: var(--s-4);
+}
+
+.new-service-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 168, 150, 0.18);
+  border-radius: var(--r-lg);
+  color: var(--c-accent);
+  margin-bottom: var(--s-2);
+  flex-shrink: 0;
+}
+
+.new-service-card-title {
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--c-white);
+  margin-bottom: 8px;
+}
+
+.new-service-card-text {
+  font-size: var(--t-sm);
+  color: rgba(255, 255, 255, 0.60);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .new-service-cards { grid-template-columns: 1fr; }
 }
 
 
@@ -2046,14 +2092,63 @@ address { font-style: normal; }
             求人原稿<em>分析</em>サービス、<br>まもなく登場。
           </h2>
           <p class="new-service-lead">
-            AIと採用データを活用し、求人原稿の弱点を可視化。<br>
-            どの表現が応募者を引き付けるのか、データで明らかにします。
+            AIの分析力と採用コンサルタントの知見を組み合わせた、求人原稿の改善サービス。<br>
+            応募率・クリック率のデータをもとに「なぜ応募が来ないのか」を可視化し、<br>
+            採用成果の最大化を支援します。
           </p>
-          <ul class="new-service-features">
-            <li>応募率に影響するキーワード分析</li>
-            <li>競合求人との比較レポート</li>
-            <li>改善提案レポートの自動生成</li>
-          </ul>
+
+          <div class="new-service-cards">
+            <div class="new-service-card">
+              <div class="new-service-card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.75">
+                  <path d="M12 2a10 10 0 1 0 10 10"/>
+                  <path d="M12 6v6l4 2"/>
+                  <path d="M22 2l-5 5M17 2h5v5"/>
+                </svg>
+              </div>
+              <h3 class="new-service-card-title">原稿スコアリング</h3>
+              <p class="new-service-card-text">
+                求人原稿を複数の指標でスコア化し、改善の優先順位を明確にします。
+                どの要素が応募率に影響しているかを数値で把握できます。
+              </p>
+            </div>
+
+            <div class="new-service-card">
+              <div class="new-service-card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.75">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6"  y1="20" x2="6"  y2="14"/>
+                  <path d="M3 20h18"/>
+                </svg>
+              </div>
+              <h3 class="new-service-card-title">競合比較分析</h3>
+              <p class="new-service-card-text">
+                同エリア・同職種の競合求人と比較し、差別化ポイントを提案します。
+                採用市場における自社求人の立ち位置を客観的に把握できます。
+              </p>
+            </div>
+
+            <div class="new-service-card">
+              <div class="new-service-card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.75">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="9" y1="13" x2="15" y2="13"/>
+                  <line x1="9" y1="17" x2="13" y2="17"/>
+                </svg>
+              </div>
+              <h3 class="new-service-card-title">改善提案レポート</h3>
+              <p class="new-service-card-text">
+                具体的な文言の修正案や構成の改善提案をレポートでお届けします。
+                採用コンサルタントが内容を精査し、実践的なアドバイスを提供します。
+              </p>
+            </div>
+          </div>
+
           <a href="#contact" class="btn btn-cta btn-lg">事前登録して先行案内を受け取る</a>
         </div>
       </div>
