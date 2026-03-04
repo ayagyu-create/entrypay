@@ -267,6 +267,59 @@ address { font-style: normal; }
   letter-spacing: -0.03em;
 }
 
+/* Logo badge — pill style matching brand identity */
+.logo-badge {
+  display: inline-block;
+  background: var(--c-accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 8px 20px;
+  border-radius: var(--r-full);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Indeed certified trust badge */
+.indeed-certified {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--s-3);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.indeed-badge {
+  display: inline-block;
+  background: #2164f3;
+  color: #fff;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Sponsor differentiation note */
+.sponsor-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: var(--s-3);
+  padding: var(--s-2) var(--s-3);
+  background: rgba(0, 168, 150, 0.07);
+  border-left: 3px solid var(--c-accent);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  font-size: var(--t-xs);
+  color: var(--c-text-sub);
+  line-height: 1.75;
+}
+
 /* Nav */
 .site-nav { margin-inline: auto; }
 
@@ -817,7 +870,7 @@ address { font-style: normal; }
    ============================================================ */
 .steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--s-4);
   position: relative;
 }
@@ -827,8 +880,8 @@ address { font-style: normal; }
   content: '';
   position: absolute;
   top: 28px;
-  left: calc(16.666% + 20px);
-  right: calc(16.666% + 20px);
+  left: calc(12.5% + 20px);
+  right: calc(12.5% + 20px);
   height: 1px;
   background: rgba(255, 255, 255, 0.15);
   z-index: 0;
@@ -1489,7 +1542,7 @@ address { font-style: normal; }
   .features-grid  { grid-template-columns: 1fr; }
 
   /* Steps */
-  .steps          { grid-template-columns: 1fr; }
+  .steps          { grid-template-columns: repeat(2, 1fr); }
   .steps::before  { display: none; }
 
   /* Cases */
@@ -1513,6 +1566,7 @@ address { font-style: normal; }
 
   .hero-stats     { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid   { grid-template-columns: 1fr; }
+  .steps          { grid-template-columns: 1fr; }
   .cta-actions    { flex-direction: column; align-items: center; }
   .footer-nav     { grid-template-columns: 1fr; }
   .footer-bottom  { flex-direction: column; align-items: flex-start; }
@@ -1530,9 +1584,8 @@ address { font-style: normal; }
   <header class="site-header" id="site-header">
     <div class="container header-inner">
 
-      <a href="/" class="logo" aria-label="EntryPay トップページへ">
-        <span class="logo-mark" aria-hidden="true">E</span>
-        <span class="logo-text">EntryPay</span>
+      <a href="/" class="logo" aria-label="entry pay トップページへ">
+        <span class="logo-badge">entry pay</span>
       </a>
 
       <nav class="site-nav" aria-label="メインナビゲーション">
@@ -1596,6 +1649,10 @@ address { font-style: normal; }
         <!-- Left: Copy -->
         <div class="hero-content">
           <p class="hero-eyebrow">成果報酬型 採用支援サービス</p>
+          <p class="indeed-certified">
+            <span class="indeed-badge">Indeed 認定パートナー</span>
+            300社超の支援実績
+          </p>
           <h1 class="hero-title" id="hero-heading">
             採用の<em>質</em>を、<br>変える。
           </h1>
@@ -1669,8 +1726,8 @@ address { font-style: normal; }
               <span  class="hero-stat-label">掲載開始まで</span>
             </li>
             <li class="hero-stat">
-              <strong class="hero-stat-num">2022<span>年〜</span></strong>
-              <span  class="hero-stat-label">サービス提供開始</span>
+              <strong class="hero-stat-num">300<span>社超</span></strong>
+              <span  class="hero-stat-label">支援実績</span>
             </li>
             <li class="hero-stat">
               <strong class="hero-stat-num">いつでも</strong>
@@ -1754,11 +1811,14 @@ address { font-style: normal; }
                 <path d="M8 21h8M12 17v4"/>
               </svg>
             </div>
-            <h3 class="feature-title">主要媒体に同時掲載</h3>
+            <h3 class="feature-title">Indeed PLUSスポンサー枠で運用</h3>
             <p class="feature-text">
-              Indeed・求人ボックスをはじめとする主要求人プラットフォームへ、
-              EntryPayが代わりに掲載を行います。複数媒体へのリーチ最大化を、
-              お客様の手間なしで実現します。
+              単なる無料掲載ではなく、Indeed PLUSの<strong>スポンサー求人枠</strong>に有料掲載。
+              表示回数を最大化し、クリック課金もEntryPayが全額負担します。
+              「無料掲載のみ」の類似サービスとは、採用力が根本的に異なります。
+            </p>
+            <p class="sponsor-note">
+              ※ 無料掲載のみで応募課金を謳う業者もいますのでご注意ください。EntryPayはIndeed認定パートナーとして、有料スポンサー枠での掲載を行っています。
             </p>
           </li>
 
@@ -1817,8 +1877,8 @@ address { font-style: normal; }
             <div class="step-content">
               <h3 class="step-title">無料相談・ヒアリング</h3>
               <p class="step-text">
-                採用背景や求める人材像をヒアリングします。
-                Zoom・お電話・訪問など、ご都合に合わせて対応します。
+                採用背景や求める人材像をヒアリング。Zoom・電話・訪問など
+                ご都合に合わせて対応します。
               </p>
             </div>
           </li>
@@ -1826,10 +1886,10 @@ address { font-style: normal; }
           <li class="step">
             <div class="step-num" aria-hidden="true">02</div>
             <div class="step-content">
-              <h3 class="step-title">求人原稿の作成・掲載</h3>
+              <h3 class="step-title">スポンサー枠で掲載開始</h3>
               <p class="step-text">
-                専任スタッフが求人原稿を作成し、Indeed・求人ボックスに掲載。
-                掲載費用はEntryPayが全額負担します。
+                専任スタッフが求人原稿を作成し、IndeedのPLUSスポンサー枠に掲載。
+                掲載費・クリック課金もすべてEntryPayが負担します。
               </p>
             </div>
           </li>
@@ -1837,10 +1897,21 @@ address { font-style: normal; }
           <li class="step">
             <div class="step-num" aria-hidden="true">03</div>
             <div class="step-content">
-              <h3 class="step-title">応募受付・費用のみ発生</h3>
+              <h3 class="step-title">応募がメールで届く</h3>
               <p class="step-text">
-                応募が届いたらメールでお知らせ。費用は応募があった分のみ発生します。
-                採用完了後はいつでもキャンセル可能です。
+                応募者からメールで直接応募が届きます。氏名・電話番号・
+                居住地域など必要項目のみのシンプルな応募フォームです。
+              </p>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step-num" aria-hidden="true">04</div>
+            <div class="step-content">
+              <h3 class="step-title">応募分のみ課金・即停止可</h3>
+              <p class="step-text">
+                費用は届いた応募の数だけ発生。採用が決まったらいつでも
+                掲載停止できます。月額費用・違約金は一切ありません。
               </p>
             </div>
           </li>
@@ -2368,9 +2439,8 @@ address { font-style: normal; }
 
         <!-- Brand col -->
         <div class="footer-brand">
-          <a href="/" class="logo logo--light" aria-label="EntryPay トップページへ">
-            <span class="logo-mark" aria-hidden="true">E</span>
-            <span class="logo-text">EntryPay</span>
+          <a href="/" class="logo" aria-label="entry pay トップページへ">
+            <span class="logo-badge">entry pay</span>
           </a>
           <p class="footer-tagline">
             採用の質を変える、<br>成果報酬型採用支援サービス
