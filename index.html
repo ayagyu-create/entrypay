@@ -3,922 +3,568 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EntryPayは、応募課金型の採用支援サービスです。Indeed・求人ボックスへの掲載費ゼロ。質の高い応募者との出会いを、コストリスクなしで実現します。">
-  <meta property="og:title"       content="EntryPay | 成果報酬型 採用支援サービス">
-  <meta property="og:description" content="掲載費・初期費用ゼロ。応募が来たときだけ費用が発生する、新しい採用のカタチ。">
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://entrypay.jp/">
-  <title>EntryPay | 成果報酬型 採用支援サービス</title>
+  <meta name="description" content="entry payは広告費負担ゼロでIndeed・求人ボックスの有料掲載ができる唯一の応募課金サービスです。">
+  <title>entry pay | 広告費負担ゼロの応募課金サービス</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <!-- ======================================================
-       HEADER
-  ====================================================== -->
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
+<!-- ========================================
+     HEADER
+======================================== -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
 
-      <a href="/" class="logo" aria-label="EntryPay トップページへ">
-        <span class="logo-mark" aria-hidden="true">E</span>
-        <span class="logo-text">EntryPay</span>
+    <a href="/" class="site-logo" aria-label="entry pay トップページへ">
+      <span class="logo-ep">entry pay</span>
+    </a>
+
+    <nav class="header-nav" aria-label="メインナビゲーション">
+      <ul class="header-nav-list">
+        <li>
+          <a href="https://jp.indeed.com/" target="_blank" rel="noopener noreferrer" class="nav-media-link">
+            <span class="nav-media-name nav-media-name--indeed">Indeed</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://xn--pckua2a7gp15o89zb.com/" target="_blank" rel="noopener noreferrer" class="nav-media-link">
+            <span class="nav-media-name nav-media-name--box">求人ボックス</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      <a href="tel:050-5530-3313" class="header-tel">
+        <svg class="tel-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+        050-5530-3313
       </a>
+      <a href="https://www.canva.com/design/DAFl9X-YnuM/view" target="_blank" rel="noopener noreferrer" class="btn-header-dl">
+        サービス資料ダウンロード
+      </a>
+    </div>
 
-      <nav class="site-nav" aria-label="メインナビゲーション">
-        <ul class="nav-list">
-          <li><a href="#service"  class="nav-link">サービス案内</a></li>
-          <li><a href="#cases"    class="nav-link">導入事例</a></li>
-          <li><a href="#pricing"  class="nav-link">料金</a></li>
-          <li><a href="#blog"     class="nav-link">ブログ</a></li>
-          <li><a href="#faq"      class="nav-link">よくある質問</a></li>
-        </ul>
-      </nav>
+    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <div class="header-actions">
-        <a href="tel:050-5530-3313" class="header-tel">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07
-                     A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2
-                     0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0
-                     01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0
-                     012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" aria-label="モバイルナビゲーション">
+  <ul>
+    <li><a href="https://jp.indeed.com/" target="_blank" rel="noopener" class="mobile-nav-link">Indeed</a></li>
+    <li><a href="https://xn--pckua2a7gp15o89zb.com/" target="_blank" rel="noopener" class="mobile-nav-link">求人ボックス</a></li>
+  </ul>
+  <div class="mobile-nav-footer">
+    <a href="tel:050-5530-3313" class="mobile-tel">📞 050-5530-3313</a>
+    <a href="https://www.canva.com/design/DAFl9X-YnuM/view" target="_blank" rel="noopener" class="btn-dl btn-dl--full">サービス資料ダウンロード</a>
+  </div>
+</nav>
+
+
+<main>
+
+<!-- ========================================
+     HERO
+======================================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">広告費負担ゼロの応募課金サービス</div>
+    <h1 class="hero-title">求人広告をもっと<br>低リスクに。</h1>
+    <p class="hero-lead">
+      entry payは広告費負担ゼロで<br class="sp-none">
+      Indeed・求人ボックスの有料掲載が可能な<br class="sp-none">
+      唯一のサービスです
+    </p>
+    <div class="hero-actions">
+      <a href="https://www.canva.com/design/DAFl9X-YnuM/view" target="_blank" rel="noopener noreferrer" class="btn-dl">
+        サービス資料をダウンロード
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     ABOUT / SYSTEM
+======================================== -->
+<section class="section section--white" id="system">
+  <div class="container">
+
+    <header class="section-header">
+      <h2 class="section-title">entry payの仕組み</h2>
+      <p class="section-lead">
+        entry payは広告費負担ゼロでIndeed・求人ボックスの有料掲載ができる唯一のサービスです
+      </p>
+    </header>
+
+    <div class="system-compare">
+      <div class="compare-col compare-col--other">
+        <div class="compare-heading">他の代理店</div>
+        <div class="compare-body">
+          <div class="compare-flow">
+            <div class="compare-step">求人を掲載</div>
+            <div class="compare-arrow">↓</div>
+            <div class="compare-step compare-step--bad">クリックで課金<br><span class="compare-note">クリックのたびに費用が発生</span></div>
+            <div class="compare-arrow">↓</div>
+            <div class="compare-step compare-step--bad">運用手数料<br><span class="compare-note">毎月の管理費用が発生</span></div>
+          </div>
+          <div class="compare-summary compare-summary--bad">
+            <p>クリックが多いほど費用が増加</p>
+            <p>応募がなくても費用は発生</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-vs">VS</div>
+
+      <div class="compare-col compare-col--ep">
+        <div class="compare-heading">entry pay</div>
+        <div class="compare-body">
+          <div class="compare-flow">
+            <div class="compare-step">求人を掲載<br><span class="compare-note compare-note--free">広告費を当社が全額負担</span></div>
+            <div class="compare-arrow">↓</div>
+            <div class="compare-step">クリックされても無料<br><span class="compare-note compare-note--free">クリック課金は発生しない</span></div>
+            <div class="compare-arrow">↓</div>
+            <div class="compare-step compare-step--good">応募が来たら課金<br><span class="compare-note">1応募 2,970円〜</span></div>
+          </div>
+          <div class="compare-summary compare-summary--good">
+            <p>応募が来るまで完全無料</p>
+            <p>コストが読める採用が実現</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================
+     REASON — entry payが選ばれる4つの理由
+======================================== -->
+<section class="section section--gray" id="reason">
+  <div class="container">
+
+    <header class="section-header">
+      <h2 class="section-title">entry payが選ばれる<br class="sp-only">4つの理由</h2>
+    </header>
+
+    <ul class="reason-list">
+
+      <li class="reason-item">
+        <div class="reason-num">01</div>
+        <div class="reason-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
           </svg>
-          050-5530-3313
-        </a>
-        <a href="#contact" class="btn btn-primary">無料相談する</a>
-      </div>
+        </div>
+        <div class="reason-body">
+          <h3 class="reason-title">最安値宣言！</h3>
+          <p class="reason-text">
+            他社の応募課金サービスよりも高い場合、その金額より安くご提供します。
+            entry payは業界最安値での応募課金サービスを宣言しています。
+          </p>
+        </div>
+      </li>
 
-      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <li class="reason-item">
+        <div class="reason-num">02</div>
+        <div class="reason-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+        </div>
+        <div class="reason-body">
+          <h3 class="reason-title">いつでも解約OK</h3>
+          <p class="reason-text">
+            採用が決まったタイミングや、採用活動を止めたいときなど、
+            いつでも自由に解約・掲載停止ができます。最低利用期間や違約金は一切ありません。
+          </p>
+        </div>
+      </li>
 
-    </div>
-  </header>
+      <li class="reason-item">
+        <div class="reason-num">03</div>
+        <div class="reason-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div class="reason-body">
+          <h3 class="reason-title">欲しい層だけを課金対象に</h3>
+          <p class="reason-text">
+            年齢や性別など、採用したい人材像を事前に設定。
+            条件に合わない応募は課金対象外にする絞り込み機能で、
+            採用効率を最大化します。
+          </p>
+        </div>
+      </li>
 
-  <!-- Mobile nav panel -->
-  <nav class="mobile-nav" aria-label="モバイルナビゲーション">
-    <ul class="mobile-nav-list">
-      <li><a href="#service"  class="mobile-nav-link">サービス案内</a></li>
-      <li><a href="#cases"    class="mobile-nav-link">導入事例</a></li>
-      <li><a href="#pricing"  class="mobile-nav-link">料金</a></li>
-      <li><a href="#blog"     class="mobile-nav-link">ブログ</a></li>
-      <li><a href="#faq"      class="mobile-nav-link">よくある質問</a></li>
+      <li class="reason-item">
+        <div class="reason-num">04</div>
+        <div class="reason-icon" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <path d="M2 10h20"/>
+          </svg>
+        </div>
+        <div class="reason-body">
+          <h3 class="reason-title">応募がくるまで完全無料</h3>
+          <p class="reason-text">
+            初期費用・掲載費・預託金など一切不要。
+            応募が届くまでは費用は0円です。
+            始めやすく、リスクなく導入できます。
+          </p>
+        </div>
+      </li>
+
     </ul>
-    <div class="mobile-nav-actions">
-      <a href="#contact"         class="btn btn-cta btn-lg">無料相談する</a>
-      <a href="tel:050-5530-3313" class="btn btn-outline btn-lg">050-5530-3313</a>
-    </div>
-  </nav>
-
-
-  <main>
-
-    <!-- ======================================================
-         HERO
-    ====================================================== -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="container hero-body">
-
-        <!-- Left: Copy -->
-        <div class="hero-content">
-          <p class="hero-eyebrow">成果報酬型 採用支援サービス</p>
-          <h1 class="hero-title" id="hero-heading">
-            採用の<em>質</em>を、<br>変える。
-          </h1>
-          <p class="hero-lead">
-            Indeed・求人ボックスへの掲載費ゼロ。<br>
-            応募が届いたときだけ費用が発生する、<br>
-            リスクフリーの採用支援サービスです。
-          </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-cta btn-lg">
-              無料相談する
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-            <a href="#" class="btn btn-ghost btn-lg">サービス資料を見る</a>
-          </div>
-        </div>
-
-        <!-- Right: Dashboard mockup -->
-        <div class="hero-visual" aria-hidden="true">
-
-          <!-- Main card -->
-          <div class="hero-card hero-card--main">
-            <div class="hero-card-header">
-              <span class="hero-card-dot hero-card-dot--green"></span>
-              <span class="hero-card-label">今月の採用状況</span>
-            </div>
-            <div class="hero-card-metric">
-              <span class="hero-card-num">47</span>
-              <span class="hero-card-unit">件の応募</span>
-            </div>
-            <div class="hero-card-bar-wrap">
-              <div class="hero-card-bar" style="--bar-w: 78%"></div>
-              <span class="hero-card-bar-label">先月比 +23%</span>
-            </div>
-            <div class="hero-card-platforms">
-              <span class="platform-tag">Indeed</span>
-              <span class="platform-tag">求人ボックス</span>
-            </div>
-          </div>
-
-          <!-- Sub cards row -->
-          <div class="hero-sub-row">
-            <div class="hero-card hero-card--sub">
-              <p class="hero-card-sub-label">広告費</p>
-              <p class="hero-card-sub-value">¥0</p>
-              <p class="hero-card-sub-note">掲載費・初期費用<br>すべて無料</p>
-            </div>
-            <div class="hero-card hero-card--sub">
-              <p class="hero-card-sub-label">掲載開始まで</p>
-              <p class="hero-card-sub-value">2日</p>
-              <p class="hero-card-sub-note">最短2営業日で<br>掲載スタート</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Stats bar -->
-      <div class="hero-stats-bar">
-        <div class="container">
-          <ul class="hero-stats">
-            <li class="hero-stat">
-              <strong class="hero-stat-num">¥0</strong>
-              <span  class="hero-stat-label">掲載費・初期費用</span>
-            </li>
-            <li class="hero-stat">
-              <strong class="hero-stat-num">2<span>営業日</span></strong>
-              <span  class="hero-stat-label">掲載開始まで</span>
-            </li>
-            <li class="hero-stat">
-              <strong class="hero-stat-num">2022<span>年〜</span></strong>
-              <span  class="hero-stat-label">サービス提供開始</span>
-            </li>
-            <li class="hero-stat">
-              <strong class="hero-stat-num">いつでも</strong>
-              <span  class="hero-stat-label">解約・停止可能</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         CLIENT LOGOS
-    ====================================================== -->
-    <section class="client-logos" aria-label="導入企業">
-      <div class="container">
-        <p class="client-logos-label">全国の企業様にご利用いただいています</p>
-      </div>
-      <div class="logos-track-wrap">
-        <ul class="logos-track" aria-hidden="true">
-          <!-- Set 1 -->
-          <li class="logo-item"><span class="logo-placeholder">株式会社<br>アイワークス</span></li>
-          <li class="logo-item"><span class="logo-placeholder">スターリング<br>フード</span></li>
-          <li class="logo-item"><span class="logo-placeholder">ケアプラス<br>グループ</span></li>
-          <li class="logo-item"><span class="logo-placeholder">ネクスト<br>リテールHD</span></li>
-          <li class="logo-item"><span class="logo-placeholder">フォーラム<br>ロジスティクス</span></li>
-          <li class="logo-item"><span class="logo-placeholder">テクノ<br>スタッフィング</span></li>
-          <li class="logo-item"><span class="logo-placeholder">サンライズ<br>コーポレーション</span></li>
-          <li class="logo-item"><span class="logo-placeholder">ミライ<br>ケアネット</span></li>
-          <!-- Set 2 (duplicate for seamless loop) -->
-          <li class="logo-item"><span class="logo-placeholder">株式会社<br>アイワークス</span></li>
-          <li class="logo-item"><span class="logo-placeholder">スターリング<br>フード</span></li>
-          <li class="logo-item"><span class="logo-placeholder">ケアプラス<br>グループ</span></li>
-          <li class="logo-item"><span class="logo-placeholder">ネクスト<br>リテールHD</span></li>
-          <li class="logo-item"><span class="logo-placeholder">フォーラム<br>ロジスティクス</span></li>
-          <li class="logo-item"><span class="logo-placeholder">テクノ<br>スタッフィング</span></li>
-          <li class="logo-item"><span class="logo-placeholder">サンライズ<br>コーポレーション</span></li>
-          <li class="logo-item"><span class="logo-placeholder">ミライ<br>ケアネット</span></li>
-        </ul>
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         WHY ENTRYPAY — サービスの特長
-    ====================================================== -->
-    <section class="section section--light" id="service">
-      <div class="container">
-
-        <header class="section-header">
-          <p class="section-eyebrow">Why EntryPay</p>
-          <h2 class="section-title">EntryPayが選ばれる理由</h2>
-          <p class="section-lead">
-            採用コストのリスクをゼロにしながら、<br>
-            質の高い応募者との出会いを実現します。
-          </p>
-        </header>
-
-        <ul class="features-grid">
-          <li class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="1.75">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-            </div>
-            <h3 class="feature-title">応募が来るまで費用ゼロ</h3>
-            <p class="feature-text">
-              掲載費・初期費用・月額費用は一切不要。採用に成功した分だけ費用が発生するため、
-              広告費リスクを完全に排除できます。無駄なコストを払う必要がありません。
-            </p>
-          </li>
-
-          <li class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="1.75">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8M12 17v4"/>
-              </svg>
-            </div>
-            <h3 class="feature-title">主要媒体に同時掲載</h3>
-            <p class="feature-text">
-              Indeed・求人ボックスをはじめとする主要求人プラットフォームへ、
-              EntryPayが代わりに掲載を行います。複数媒体へのリーチ最大化を、
-              お客様の手間なしで実現します。
-            </p>
-          </li>
-
-          <li class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="1.75">
-                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-              </svg>
-            </div>
-            <h3 class="feature-title">採用担当の工数を大幅削減</h3>
-            <p class="feature-text">
-              求人原稿の作成から媒体管理・効果測定まで、専任スタッフがフルサポート。
-              採用担当者は面接・選考業務に集中でき、採用全体の質が向上します。
-            </p>
-          </li>
-
-          <li class="feature-card">
-            <div class="feature-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="1.75">
-                <line x1="18" y1="20" x2="18" y2="10"/>
-                <line x1="12" y1="20" x2="12" y2="4"/>
-                <line x1="6"  y1="20" x2="6"  y2="14"/>
-              </svg>
-            </div>
-            <h3 class="feature-title">データ駆動で継続的に改善</h3>
-            <p class="feature-text">
-              応募数・閲覧数・クリック率などの実績データをもとに、
-              求人原稿をPDCAサイクルで改善。掲載期間を通じて採用効果が向上していきます。
-            </p>
-          </li>
-        </ul>
-
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         HOW IT WORKS — ご利用の流れ
-    ====================================================== -->
-    <section class="section section--dark" aria-labelledby="how-heading">
-      <div class="container">
-
-        <header class="section-header section-header--light">
-          <p class="section-eyebrow">How It Works</p>
-          <h2 class="section-title" id="how-heading">ご利用の流れ</h2>
-          <p class="section-lead">最短2営業日で掲載開始。手続きはシンプルです。</p>
-        </header>
-
-        <ol class="steps">
-          <li class="step">
-            <div class="step-num" aria-hidden="true">01</div>
-            <div class="step-content">
-              <h3 class="step-title">無料相談・ヒアリング</h3>
-              <p class="step-text">
-                採用背景や求める人材像をヒアリングします。
-                Zoom・お電話・訪問など、ご都合に合わせて対応します。
-              </p>
-            </div>
-          </li>
-
-          <li class="step">
-            <div class="step-num" aria-hidden="true">02</div>
-            <div class="step-content">
-              <h3 class="step-title">求人原稿の作成・掲載</h3>
-              <p class="step-text">
-                専任スタッフが求人原稿を作成し、Indeed・求人ボックスに掲載。
-                掲載費用はEntryPayが全額負担します。
-              </p>
-            </div>
-          </li>
-
-          <li class="step">
-            <div class="step-num" aria-hidden="true">03</div>
-            <div class="step-content">
-              <h3 class="step-title">応募受付・費用のみ発生</h3>
-              <p class="step-text">
-                応募が届いたらメールでお知らせ。費用は応募があった分のみ発生します。
-                採用完了後はいつでもキャンセル可能です。
-              </p>
-            </div>
-          </li>
-        </ol>
-
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         CASE STUDIES — 導入事例
-    ====================================================== -->
-    <section class="section" id="cases">
-      <div class="container">
-
-        <header class="section-header">
-          <p class="section-eyebrow">Case Studies</p>
-          <h2 class="section-title">導入事例</h2>
-          <p class="section-lead">
-            さまざまな業種・規模の企業様の採用課題を解決してきました。
-          </p>
-        </header>
-
-        <div class="cases-grid">
-
-          <article class="case-card">
-            <header>
-              <div class="case-industry-tag">飲食業</div>
-              <h3 class="case-company">A社（飲食チェーン・関東圏）</h3>
-            </header>
-            <div class="case-challenge">
-              <span class="case-label">課題</span>
-              <p>
-                求人誌への掲載費が毎月30万円以上かかっていたが、応募数が安定せず
-                採用コストが読めない状態が続いていた。
-              </p>
-            </div>
-            <div class="case-result">
-              <span class="case-label">成果</span>
-              <ul class="case-metrics">
-                <li class="case-metric">
-                  <strong class="case-metric-num">▼ 65%</strong>
-                  <span>採用コスト削減</span>
-                </li>
-                <li class="case-metric">
-                  <strong class="case-metric-num">+180%</strong>
-                  <span>月間応募数増加</span>
-                </li>
-              </ul>
-            </div>
-            <blockquote class="case-quote">
-              「固定費が完全になくなり、採用コストが予測しやすくなりました。
-              応募の質も上がったと感じています。」
-            </blockquote>
-          </article>
-
-          <article class="case-card">
-            <header>
-              <div class="case-industry-tag">介護・福祉</div>
-              <h3 class="case-company">B施設（介護施設・全国展開）</h3>
-            </header>
-            <div class="case-challenge">
-              <span class="case-label">課題</span>
-              <p>
-                介護職の人手不足が深刻で採用エージェントに依存していたが、
-                紹介手数料が高額になり採用コストが経営を圧迫していた。
-              </p>
-            </div>
-            <div class="case-result">
-              <span class="case-label">成果</span>
-              <ul class="case-metrics">
-                <li class="case-metric">
-                  <strong class="case-metric-num">▼ 70%</strong>
-                  <span>紹介手数料削減</span>
-                </li>
-                <li class="case-metric">
-                  <strong class="case-metric-num">3倍</strong>
-                  <span>採用人数増加</span>
-                </li>
-              </ul>
-            </div>
-            <blockquote class="case-quote">
-              「エージェント依存から脱却できました。担当者が原稿改善を
-              継続的にサポートしてくれるので非常に心強いです。」
-            </blockquote>
-          </article>
-
-          <article class="case-card">
-            <header>
-              <div class="case-industry-tag">小売業</div>
-              <h3 class="case-company">C社（アパレル小売・全国）</h3>
-            </header>
-            <div class="case-challenge">
-              <span class="case-label">課題</span>
-              <p>
-                繁忙期に合わせた短期採用が必要だったが、従来の採用方法では
-                掲載から採用完了まで時間がかかりすぎていた。
-              </p>
-            </div>
-            <div class="case-result">
-              <span class="case-label">成果</span>
-              <ul class="case-metrics">
-                <li class="case-metric">
-                  <strong class="case-metric-num">▼ 50%</strong>
-                  <span>採用リードタイム短縮</span>
-                </li>
-                <li class="case-metric">
-                  <strong class="case-metric-num">+120%</strong>
-                  <span>繁忙期応募数増加</span>
-                </li>
-              </ul>
-            </div>
-            <blockquote class="case-quote">
-              「スピーディーに掲載でき、応募の質と量が両立できています。
-              繁忙期の採用計画が格段に立てやすくなりました。」
-            </blockquote>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         NEW SERVICE TEASER — 求人原稿分析サービス
-    ====================================================== -->
-    <section class="new-service-teaser" aria-labelledby="new-service-heading">
-      <div class="container">
-        <div class="new-service-inner">
-          <div class="new-service-badge">NEW SERVICE</div>
-          <h2 class="new-service-title" id="new-service-heading">
-            求人原稿<em>分析</em>サービス、<br>まもなく登場。
-          </h2>
-          <p class="new-service-lead">
-            AIと採用データを活用し、求人原稿の弱点を可視化。<br>
-            どの表現が応募者を引き付けるのか、データで明らかにします。
-          </p>
-          <ul class="new-service-features">
-            <li>応募率に影響するキーワード分析</li>
-            <li>競合求人との比較レポート</li>
-            <li>改善提案レポートの自動生成</li>
-          </ul>
-          <a href="#contact" class="btn btn-cta btn-lg">事前登録して先行案内を受け取る</a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         PRICING — 料金体系
-    ====================================================== -->
-    <section class="section section--light" id="pricing">
-      <div class="container">
-
-        <header class="section-header">
-          <p class="section-eyebrow">Pricing</p>
-          <h2 class="section-title">料金体系</h2>
-          <p class="section-lead">
-            応募があった時だけ費用が発生します。<br>
-            掲載費・初期費用・月額費用はすべて無料。
-          </p>
-        </header>
-
-        <!-- Zero-cost highlights -->
-        <div class="pricing-free-banner" aria-label="無料項目一覧">
-          <div class="pricing-free-item">掲載費</div>
-          <div class="pricing-free-item">初期費用</div>
-          <div class="pricing-free-item">月額固定費</div>
-          <div class="pricing-free-item">解約金</div>
-        </div>
-
-        <!-- Per-application pricing -->
-        <div class="pricing-grid">
-
-          <article class="pricing-card">
-            <header class="pricing-card-header">
-              <h3 class="pricing-job-type">テレマーケティング<br>コールセンター</h3>
-              <p class="pricing-note">リモート・パート</p>
-            </header>
-            <div class="pricing-amount">
-              <span class="pricing-currency">¥</span>
-              <span class="pricing-num">2,200</span>
-              <span class="pricing-per">〜 / 応募</span>
-            </div>
-          </article>
-
-          <article class="pricing-card pricing-card--popular">
-            <div class="pricing-popular-badge">よく選ばれています</div>
-            <header class="pricing-card-header">
-              <h3 class="pricing-job-type">オフィス・販売<br>接客・サービス</h3>
-              <p class="pricing-note">正社員・パート</p>
-            </header>
-            <div class="pricing-amount">
-              <span class="pricing-currency">¥</span>
-              <span class="pricing-num">5,500</span>
-              <span class="pricing-per">〜 / 応募</span>
-            </div>
-          </article>
-
-          <article class="pricing-card">
-            <header class="pricing-card-header">
-              <h3 class="pricing-job-type">飲食・フード<br>介護・医療</h3>
-              <p class="pricing-note">正社員・アルバイト</p>
-            </header>
-            <div class="pricing-amount">
-              <span class="pricing-currency">¥</span>
-              <span class="pricing-num">6,600</span>
-              <span class="pricing-per">〜 / 応募</span>
-            </div>
-          </article>
-
-          <article class="pricing-card">
-            <header class="pricing-card-header">
-              <h3 class="pricing-job-type">営業・専門職<br>管理職</h3>
-              <p class="pricing-note">全雇用形態</p>
-            </header>
-            <div class="pricing-amount">
-              <span class="pricing-currency">¥</span>
-              <span class="pricing-num">11,000</span>
-              <span class="pricing-per">〜 / 応募</span>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="pricing-note-global">
-          ※ 表示価格はすべて税込です。職種・地域・雇用形態によって料金が異なる場合があります。
-          詳細はお問い合わせください。
-        </p>
-
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         FAQ — よくある質問
-    ====================================================== -->
-    <section class="section" id="faq">
-      <div class="container">
-
-        <header class="section-header">
-          <p class="section-eyebrow">FAQ</p>
-          <h2 class="section-title">よくある質問</h2>
-        </header>
-
-        <dl class="faq-list">
-
-          <div class="faq-item">
-            <dt class="faq-question">
-              <button class="faq-btn" aria-expanded="false">
-                本当に掲載費がかからないのですか？
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </button>
-            </dt>
-            <dd class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>
-                  はい、掲載費・初期費用・月額費用はすべて無料です。費用が発生するのは
-                  応募が届いた時のみです。IndeedやJob Boxへの掲載にかかる広告費は
-                  EntryPayが全額負担します。
-                </p>
-              </div>
-            </dd>
-          </div>
-
-          <div class="faq-item">
-            <dt class="faq-question">
-              <button class="faq-btn" aria-expanded="false">
-                いつでもキャンセルできますか？
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </button>
-            </dt>
-            <dd class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>
-                  はい、いつでも掲載停止・キャンセルが可能です。最低利用期間や
-                  違約金はありません。採用が完了したタイミングでご連絡いただければ、
-                  すぐに対応します。
-                </p>
-              </div>
-            </dd>
-          </div>
-
-          <div class="faq-item">
-            <dt class="faq-question">
-              <button class="faq-btn" aria-expanded="false">
-                どのような職種・業種に対応していますか？
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </button>
-            </dt>
-            <dd class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>
-                  飲食・小売・介護・物流・オフィスワーク・テレマーケティングなど
-                  幅広い職種に対応しています。正社員・パート・アルバイト・契約社員など
-                  雇用形態も問いません。まずはご相談ください。
-                </p>
-              </div>
-            </dd>
-          </div>
-
-          <div class="faq-item">
-            <dt class="faq-question">
-              <button class="faq-btn" aria-expanded="false">
-                掲載開始までどのくらいかかりますか？
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </button>
-            </dt>
-            <dd class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>
-                  ご相談後、最短2営業日で掲載を開始できます。求人原稿はEntryPayが
-                  作成するため、お客様側の手間を最小限に抑えられます。
-                </p>
-              </div>
-            </dd>
-          </div>
-
-          <div class="faq-item">
-            <dt class="faq-question">
-              <button class="faq-btn" aria-expanded="false">
-                応募者の絞り込みはできますか？
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </button>
-            </dt>
-            <dd class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>
-                  求人原稿の記載内容により、ある程度の絞り込みが可能です。
-                  ただし、雇用機会均等法等の関係で、性別・年齢などによる
-                  直接的な絞り込みには法律上の制限があります。
-                  詳細はご相談時にご説明します。
-                </p>
-              </div>
-            </dd>
-          </div>
-
-          <div class="faq-item">
-            <dt class="faq-question">
-              <button class="faq-btn" aria-expanded="false">
-                他の採用サービスと同時に使えますか？
-                <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24"
-                     fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </button>
-            </dt>
-            <dd class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>
-                  はい、他の採用サービスと並行してご利用いただけます。
-                  EntryPayは初期費用・月額費用がかからないため、
-                  既存の採用チャネルを維持しながら追加導入することも可能です。
-                </p>
-              </div>
-            </dd>
-          </div>
-
-        </dl>
-
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         BLOG — 採用に役立つ情報
-    ====================================================== -->
-    <section class="section section--light" id="blog">
-      <div class="container">
-
-        <header class="section-header">
-          <p class="section-eyebrow">Blog</p>
-          <h2 class="section-title">採用に役立つ情報</h2>
-          <p class="section-lead">採用担当者のための実践的なノウハウをお届けします。</p>
-        </header>
-
-        <div class="blog-grid">
-
-          <article class="blog-card">
-            <a href="/blog/job-posting-tips" class="blog-card-link">
-              <div class="blog-card-thumb" aria-hidden="true">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="1.5">
-                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                  <polyline points="10 9 9 9 8 9"/>
+  </div>
+</section>
+
+
+<!-- ========================================
+     PRICING — 人気職種の応募単価
+======================================== -->
+<section class="section section--white" id="price">
+  <div class="container">
+
+    <header class="section-header">
+      <h2 class="section-title">人気職種の応募単価</h2>
+      <p class="section-lead">
+        職種・雇用形態によって単価が異なります。<br>
+        詳細はお気軽にお問い合わせください。
+      </p>
+    </header>
+
+    <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>職種</th>
+            <th>雇用形態</th>
+            <th>応募単価（税込）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2" class="job-type">
+              <div class="job-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
                 </svg>
               </div>
-              <div class="blog-card-body">
-                <div class="blog-card-meta">
-                  <span class="blog-category">求人原稿</span>
-                  <time class="blog-date" datetime="2025-01-15">2025.01.15</time>
-                </div>
-                <h3 class="blog-title">応募数が3倍に増えた求人原稿の書き方｜5つのポイント</h3>
-                <p class="blog-excerpt">
-                  求人原稿のちょっとした改善が応募数を大きく変えます。
-                  実際に効果があった5つのポイントを解説します。
-                </p>
+              テレアポ
+            </td>
+            <td>在宅パート</td>
+            <td class="price-cell"><strong>2,200円</strong> / 応募</td>
+          </tr>
+          <tr>
+            <td>出勤パート</td>
+            <td class="price-cell"><strong>4,400円</strong> / 応募</td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="job-type">
+              <div class="job-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8M12 17v4"/>
+                </svg>
               </div>
-            </a>
-          </article>
-
-          <article class="blog-card">
-            <a href="/blog/indeed-optimization" class="blog-card-link">
-              <div class="blog-card-thumb" aria-hidden="true">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="1.5">
+              事務職・店舗スタッフ
+            </td>
+            <td>アルバイト</td>
+            <td class="price-cell"><strong>5,500円</strong> / 応募</td>
+          </tr>
+          <tr>
+            <td>正社員</td>
+            <td class="price-cell"><strong>8,800円</strong> / 応募</td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="job-type">
+              <div class="job-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 6h18M3 12h18M3 18h18"/>
+                </svg>
+              </div>
+              飲食スタッフ
+            </td>
+            <td>アルバイト</td>
+            <td class="price-cell"><strong>6,600円</strong> / 応募</td>
+          </tr>
+          <tr>
+            <td>正社員</td>
+            <td class="price-cell"><strong>11,000円</strong> / 応募</td>
+          </tr>
+          <tr>
+            <td class="job-type">
+              <div class="job-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <line x1="18" y1="20" x2="18" y2="10"/>
                   <line x1="12" y1="20" x2="12" y2="4"/>
                   <line x1="6"  y1="20" x2="6"  y2="14"/>
                 </svg>
               </div>
-              <div class="blog-card-body">
-                <div class="blog-card-meta">
-                  <span class="blog-category">Indeed活用</span>
-                  <time class="blog-date" datetime="2025-01-08">2025.01.08</time>
-                </div>
-                <h3 class="blog-title">Indeed最適化で採用コストを削減した3社の事例</h3>
-                <p class="blog-excerpt">
-                  Indeedのアルゴリズムを理解して求人掲載を最適化することで、
-                  採用コストを大幅に削減した実例をご紹介します。
-                </p>
-              </div>
-            </a>
-          </article>
+              営業職・総合職
+            </td>
+            <td>一律</td>
+            <td class="price-cell"><strong>11,000〜22,000円</strong> / 応募</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-          <article class="blog-card">
-            <a href="/blog/hiring-trends-2025" class="blog-card-link">
-              <div class="blog-card-thumb" aria-hidden="true">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10
-                           15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-                </svg>
-              </div>
-              <div class="blog-card-body">
-                <div class="blog-card-meta">
-                  <span class="blog-category">採用トレンド</span>
-                  <time class="blog-date" datetime="2024-12-25">2024.12.25</time>
-                </div>
-                <h3 class="blog-title">2025年の採用市場トレンドと中小企業が取るべき戦略</h3>
-                <p class="blog-excerpt">
-                  人手不足が続く2025年の採用市場。
-                  中小企業が大手に対抗するための採用戦略を解説します。
-                </p>
-              </div>
-            </a>
-          </article>
+    <p class="price-note">※ 表示価格はすべて税込です。職種・地域・雇用形態によって料金が変動する場合があります。</p>
 
-        </div>
+  </div>
+</section>
 
-        <div class="blog-more">
-          <a href="/blog" class="btn btn-outline">記事をすべて見る</a>
-        </div>
 
+<!-- ========================================
+     FAQ
+======================================== -->
+<section class="section section--gray" id="faq">
+  <div class="container">
+
+    <header class="section-header">
+      <h2 class="section-title">よくある質問</h2>
+    </header>
+
+    <dl class="faq-list">
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q-mark">Q</span>
+            <span class="faq-question-text">面接を実施しなかった場合も費用は発生しますか？</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </button>
+        </dt>
+        <dd class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              応募が入った時点で課金となります。面接の実施有無は関係ありません。
+              他媒体との費用対効果をしっかり比較された上でご利用いただくことをお勧めします。
+            </p>
+          </div>
+        </dd>
       </div>
-    </section>
 
-
-    <!-- ======================================================
-         CTA SECTION
-    ====================================================== -->
-    <section class="cta-section" id="contact" aria-labelledby="cta-heading">
-      <div class="container">
-        <h2 class="cta-title" id="cta-heading">
-          採用の課題、まずはご相談ください。
-        </h2>
-        <p class="cta-lead">
-          初回相談は無料です。現在の採用状況をお聞きし、<br>
-          EntryPayがどのようにお役に立てるかをご提案します。
-        </p>
-        <div class="cta-actions">
-          <a href="mailto:info@entrypay.jp" class="btn btn-cta btn-lg">
-            無料相談を申し込む
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="tel:050-5530-3313" class="btn btn-outline-light btn-lg">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07
-                       A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2
-                       0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2
-                       0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0
-                       012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
-            </svg>
-            050-5530-3313
-          </a>
-        </div>
-        <p class="cta-note">平日 9:00〜18:00 受付</p>
+      <div class="faq-item">
+        <dt>
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q-mark">Q</span>
+            <span class="faq-question-text">現在掲載している媒体と同時に利用できますか？</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </button>
+        </dt>
+        <dd class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              同一求人の同時掲載はIndeed・求人ボックスのルール上できない場合がございます。
+              詳しくはお問い合わせください。
+            </p>
+          </div>
+        </dd>
       </div>
-    </section>
 
-  </main>
+      <div class="faq-item">
+        <dt>
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q-mark">Q</span>
+            <span class="faq-question-text">必ず応募が来ることは保証されますか？</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </button>
+        </dt>
+        <dd class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              応募数の保証はできかねますが、求人票をご提供いただければ
+              課金額の見込みをご回答することが可能です。詳しくはお問い合わせください。
+            </p>
+          </div>
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>
+          <button class="faq-btn" aria-expanded="false">
+            <span class="faq-q-mark">Q</span>
+            <span class="faq-question-text">あらゆる求人に対応できますか？</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </button>
+        </dt>
+        <dd class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>
+              資格が必須な職種（医師・看護師・薬剤師など）については、
+              クリック課金のみの対応となります。詳しくはお問い合わせください。
+            </p>
+          </div>
+        </dd>
+      </div>
+
+    </dl>
+  </div>
+</section>
 
 
-  <!-- ======================================================
-       FOOTER
-  ====================================================== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
+<!-- ========================================
+     MESSAGE — 責任者からのご挨拶
+======================================== -->
+<section class="section section--white" id="message">
+  <div class="container">
 
-      <div class="footer-inner">
-
-        <!-- Brand col -->
-        <div class="footer-brand">
-          <a href="/" class="logo logo--light" aria-label="EntryPay トップページへ">
-            <span class="logo-mark" aria-hidden="true">E</span>
-            <span class="logo-text">EntryPay</span>
-          </a>
-          <p class="footer-tagline">
-            採用の質を変える、<br>成果報酬型採用支援サービス
+    <div class="message-inner">
+      <div class="message-photo">
+        <div class="message-photo-placeholder" aria-label="野口一仁の写真">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="message-body">
+        <h2 class="message-title">サービス責任者より</h2>
+        <div class="message-text">
+          <p>
+            entry payは「採用費のリスクをゼロにしたい」という想いからスタートしました。
+            求人広告に多額の費用をかけても応募が来ない、という状況は採用担当者の方にとって
+            大きなストレスになります。
           </p>
-          <address class="footer-contact">
-            <a href="tel:050-5530-3313">050-5530-3313</a><br>
-            平日 9:00〜18:00<br>
-            ブレーメン株式会社
-          </address>
+          <p>
+            私たちは収益性を追わず、お客様の採用成功を最優先に考えています。
+            2022年9月時点での赤字案件率は22%ですが、それでもお客様の採用コスト削減を
+            最優先に取り組んでいます。
+          </p>
+          <p>
+            まずはお気軽にご相談ください。
+          </p>
         </div>
+        <div class="message-author">
+          <p class="message-name">野口 一仁</p>
+          <p class="message-company">ブレーメン株式会社</p>
+        </div>
+      </div>
+    </div>
 
-        <!-- Nav cols -->
-        <nav class="footer-nav" aria-label="フッターナビゲーション">
-          <div class="footer-nav-col">
-            <h3 class="footer-nav-heading">サービス</h3>
-            <ul>
-              <li><a href="#service">EntryPayについて</a></li>
-              <li><a href="#cases">導入事例</a></li>
-              <li><a href="#pricing">料金体系</a></li>
-              <li><a href="#faq">よくある質問</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-col">
-            <h3 class="footer-nav-heading">コンテンツ</h3>
-            <ul>
-              <li><a href="/blog">ブログ</a></li>
-              <li><a href="#">サービス資料</a></li>
-              <li><a href="#contact">お問い合わせ</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-col">
-            <h3 class="footer-nav-heading">会社情報</h3>
-            <ul>
-              <li><a href="/company">会社概要</a></li>
-              <li><a href="/privacy">プライバシーポリシー</a></li>
-              <li><a href="/terms">利用規約</a></li>
-            </ul>
-          </div>
-        </nav>
+  </div>
+</section>
 
+
+<!-- ========================================
+     LINE CTA
+======================================== -->
+<section class="section-line">
+  <div class="container">
+    <div class="line-inner">
+      <div class="line-text">
+        <h2 class="line-title">LINEで友だち追加して<br>お問い合わせ・資料請求</h2>
+        <p class="line-lead">LINEからでもお気軽にお問い合わせいただけます。</p>
+      </div>
+      <div class="line-action">
+        <a href="https://lin.ee/example" target="_blank" rel="noopener noreferrer" class="btn-line">
+          <svg class="line-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.04 2 11c0 3.18 1.7 5.98 4.3 7.66L5.5 22l3.82-2.03C10.2 20.3 11.08 20.5 12 20.5c5.52 0 10-4.04 10-9S17.52 2 12 2z"/>
+          </svg>
+          LINE 友だち追加
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
+     CTA / CONTACT
+======================================== -->
+<section class="section-cta" id="contact">
+  <div class="container">
+    <h2 class="cta-title">まずはお気軽に<br class="sp-only">ご相談ください</h2>
+    <p class="cta-lead">
+      サービス資料のダウンロードや、ご相談はこちらから。<br>
+      お電話でも受け付けております。
+    </p>
+    <div class="cta-actions">
+      <a href="https://www.canva.com/design/DAFl9X-YnuM/view" target="_blank" rel="noopener noreferrer" class="btn-dl btn-dl--lg">
+        サービス資料をダウンロード
+      </a>
+      <a href="tel:050-5530-3313" class="btn-tel-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+        050-5530-3313
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+
+      <div class="footer-logo-area">
+        <a href="/" class="site-logo site-logo--white" aria-label="entry pay トップページへ">
+          <span class="logo-ep logo-ep--white">entry pay</span>
+        </a>
+        <address class="footer-address">
+          ブレーメン株式会社<br>
+          <a href="tel:050-5530-3313">050-5530-3313</a>
+        </address>
       </div>
 
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2025 Bremen Inc. All rights reserved.</p>
-        <nav class="footer-legal" aria-label="法的情報">
-          <a href="/privacy">プライバシーポリシー</a>
-          <a href="/terms">利用規約</a>
-        </nav>
-      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <ul>
+          <li><a href="/company">会社概要</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
 
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 bremen Inc.</p>
+    </div>
+  </div>
+</footer>
 
 
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

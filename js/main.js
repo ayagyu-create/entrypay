@@ -1,5 +1,5 @@
 /* ============================================================
-   EntryPay — Main JavaScript
+   entry pay — Main JavaScript
    ブレーメン株式会社
    ============================================================ */
 
@@ -16,7 +16,7 @@
       header.classList.toggle('scrolled', window.scrollY > 8);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // Run once on load
+    onScroll();
   }
 
 
@@ -31,12 +31,9 @@
       const isOpen = menuToggle.classList.toggle('is-open');
       mobileNav.classList.toggle('is-open', isOpen);
       menuToggle.setAttribute('aria-expanded', String(isOpen));
-
-      // Prevent body scroll when nav is open
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close menu when any mobile nav link is clicked
     mobileNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMenu);
     });
@@ -72,30 +69,5 @@
       answer.classList.toggle('is-open', !isExpanded);
     });
   });
-
-
-  /* ----------------------------------------------------------
-     Smooth active state for nav links (scroll spy — light)
-  ---------------------------------------------------------- */
-  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-  const sections = [];
-
-  navLinks.forEach(link => {
-    const id = link.getAttribute('href').slice(1);
-    const el = document.getElementById(id);
-    if (el) sections.push({ link, el });
-  });
-
-  if (sections.length) {
-    const onScrollSpy = () => {
-      const scrollY = window.scrollY + 100;
-      sections.forEach(({ link, el }) => {
-        const top    = el.offsetTop;
-        const bottom = top + el.offsetHeight;
-        link.classList.toggle('is-active', scrollY >= top && scrollY < bottom);
-      });
-    };
-    window.addEventListener('scroll', onScrollSpy, { passive: true });
-  }
 
 }());
