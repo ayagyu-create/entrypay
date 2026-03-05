@@ -6,10 +6,704 @@
   <meta name="description" content="entry payは広告費負担ゼロでIndeed・求人ボックスの有料掲載ができる唯一の応募課金サービスです。">
   <title>entry pay | 広告費負担ゼロの応募課金サービス</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<style>
+/* ============================================================
+   Design Tokens
+   ============================================================ */
+:root {
+  --c-brand:        #3DC878;
+  --c-brand-dark:   #2EAD63;
+  --c-brand-light:  rgba(61,200,120,0.10);
+  --c-white:        #FFFFFF;
+  --c-gray-50:      #F7F8F9;
+  --c-gray-100:     #F0F1F3;
+  --c-gray-200:     #E4E6EA;
+  --c-gray-400:     #9DA8B5;
+  --c-gray-600:     #5C6778;
+  --c-gray-900:     #1A1A1A;
+  --c-text:         #1A1A1A;
+  --c-text-sub:     #5C6778;
+  --c-text-muted:   #9DA8B5;
+  --c-border:       #E4E6EA;
+  --c-surface:      #F7F8F9;
+  --c-bad:          #E53E3E;
+  --c-bad-light:    rgba(229,62,62,0.08);
+  --c-good:         #3DC878;
+  --c-good-light:   rgba(61,200,120,0.09);
+  --c-dark:         #1C2234;
+  --c-line:         #06C755;
+  --f-sans: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN',
+            'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif;
+  --t-xs:   0.75rem;
+  --t-sm:   0.875rem;
+  --t-base: 1rem;
+  --t-md:   1.125rem;
+  --t-lg:   1.25rem;
+  --t-xl:   1.5rem;
+  --t-2xl:  1.875rem;
+  --t-3xl:  2.25rem;
+  --t-4xl:  3rem;
+  --s-1:  8px;  --s-2:  16px; --s-3:  24px; --s-4:  32px;
+  --s-5:  40px; --s-6:  48px; --s-8:  64px; --s-10: 80px; --s-12: 96px;
+  --max-w: 1100px;
+  --pad:   clamp(16px, 4vw, 40px);
+  --r-sm:  4px; --r-md: 8px; --r-lg: 16px; --r-full: 9999px;
+  --sh-sm: 0 2px 8px rgba(0,0,0,0.07);
+  --sh-md: 0 4px 20px rgba(0,0,0,0.10);
+  --tr:    180ms ease;
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: var(--f-sans);
+  font-size: var(--t-base);
+  line-height: 1.75;
+  color: var(--c-text);
+  background: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+address { font-style: normal; }
+:focus-visible { outline: 2px solid var(--c-brand); outline-offset: 3px; }
+.sp-none { display: inline; }
+.sp-only { display: none; }
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn-dl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--c-brand);
+  color: var(--c-white);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: var(--r-full);
+  transition: background var(--tr), transform var(--tr);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn-dl:hover { background: var(--c-brand-dark); transform: translateY(-1px); }
+.btn-dl--lg { font-size: var(--t-base); padding: 18px 40px; }
+.btn-dl--full { width: 100%; }
+
+.btn-header-dl {
+  display: inline-flex;
+  align-items: center;
+  background: var(--c-brand);
+  color: var(--c-white);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: var(--r-full);
+  white-space: nowrap;
+  transition: background var(--tr);
+}
+.btn-header-dl:hover { background: var(--c-brand-dark); }
+
+.btn-tel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--c-white);
+  font-size: var(--t-lg);
+  font-weight: 900;
+  padding: 18px 32px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: var(--r-full);
+  transition: border-color var(--tr), background var(--tr);
+}
+.btn-tel-cta:hover { border-color: var(--c-white); background: rgba(255,255,255,0.08); }
+
+.btn-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--c-line);
+  color: var(--c-white);
+  font-size: var(--t-base);
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: var(--r-full);
+  transition: opacity var(--tr);
+}
+.btn-line:hover { opacity: 0.88; }
+.line-icon { flex-shrink: 0; }
+
+/* ============================================================
+   Header
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--c-white);
+  border-bottom: 1px solid var(--c-border);
+  transition: box-shadow var(--tr);
+}
+.site-header.scrolled { box-shadow: var(--sh-sm); }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+  height: 72px;
+}
+
+.site-logo { flex-shrink: 0; }
+
+.logo-ep {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--c-brand);
+  letter-spacing: -0.02em;
+}
+.logo-ep--white { color: var(--c-white); }
+
+.header-nav { margin-inline: auto; }
+
+.header-nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.nav-media-link {
+  display: flex;
+  align-items: center;
+  opacity: 0.75;
+  transition: opacity var(--tr);
+}
+.nav-media-link:hover { opacity: 1; }
+
+.nav-media-name {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--r-sm);
+  border: 1.5px solid;
+}
+.nav-media-name--indeed { color: #2164f3; border-color: #2164f3; }
+.nav-media-name--box    { color: #e8490f; border-color: #e8490f; }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex-shrink: 0;
+}
+
+.header-tel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--c-text-sub);
+  transition: color var(--tr);
+}
+.header-tel:hover { color: var(--c-text); }
+.tel-icon { flex-shrink: 0; }
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--c-text);
+  border-radius: var(--r-full);
+  transition: transform var(--tr), opacity var(--tr);
+}
+.menu-toggle.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+.menu-toggle.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Mobile nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--c-white);
+  padding: var(--s-3) var(--pad);
+  z-index: 99;
+  border-top: 1px solid var(--c-border);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 240ms ease;
+}
+.mobile-nav.is-open { display: block; transform: translateX(0); }
+.mobile-nav ul { margin-bottom: var(--s-4); }
+.mobile-nav-link {
+  display: block;
+  font-size: var(--t-lg);
+  font-weight: 700;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--c-border);
+  color: var(--c-text);
+}
+.mobile-nav-footer { display: flex; flex-direction: column; gap: var(--s-2); }
+.mobile-tel {
+  font-size: var(--t-lg);
+  font-weight: 900;
+  color: var(--c-text);
+  text-align: center;
+  padding: var(--s-2) 0;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  background: var(--c-dark);
+  padding: var(--s-12) 0;
+  text-align: center;
+}
+.hero-inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+.hero-badge {
+  display: inline-block;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--c-brand);
+  border: 1px solid var(--c-brand);
+  padding: 6px 18px;
+  border-radius: var(--r-full);
+  margin-bottom: var(--s-3);
+}
+.hero-title {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--c-white);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--s-3);
+}
+.hero-lead {
+  font-size: var(--t-md);
+  color: rgba(255,255,255,0.70);
+  line-height: 1.85;
+  margin-bottom: var(--s-5);
+}
+.hero-actions { display: flex; justify-content: center; }
+
+/* ============================================================
+   Section Base
+   ============================================================ */
+.section { padding: var(--s-12) 0; }
+.section--white { background: var(--c-white); }
+.section--gray  { background: var(--c-gray-50); }
+
+.section-header { text-align: center; margin-bottom: var(--s-8); }
+.section-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin-bottom: var(--s-2);
+}
+.section-lead { font-size: var(--t-md); color: var(--c-text-sub); line-height: 1.85; }
+
+/* ============================================================
+   System / Compare
+   ============================================================ */
+.system-compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--s-3);
+  align-items: center;
+}
+.compare-col {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 2px solid var(--c-border);
+}
+.compare-col--ep { border-color: var(--c-brand); }
+
+.compare-heading {
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  text-align: center;
+  background: var(--c-gray-100);
+  color: var(--c-text-sub);
+}
+.compare-col--ep .compare-heading { background: var(--c-brand); color: var(--c-white); }
+
+.compare-body { padding: var(--s-3); }
+
+.compare-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+  margin-bottom: var(--s-3);
+}
+.compare-step {
+  width: 100%;
+  text-align: center;
+  padding: var(--s-2);
+  border-radius: var(--r-md);
+  background: var(--c-gray-100);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  line-height: 1.5;
+}
+.compare-step--bad  { background: var(--c-bad-light);  color: var(--c-bad); }
+.compare-step--good { background: var(--c-good-light); color: #1C7A40; }
+
+.compare-note {
+  display: block;
+  font-size: var(--t-xs);
+  font-weight: 400;
+  color: var(--c-text-sub);
+  margin-top: 2px;
+}
+.compare-note--free { color: var(--c-brand-dark); font-weight: 700; }
+
+.compare-arrow { font-size: 1.25rem; color: var(--c-text-muted); }
+
+.compare-summary {
+  border-radius: var(--r-md);
+  padding: var(--s-2);
+  font-size: var(--t-sm);
+  line-height: 1.7;
+}
+.compare-summary p::before { margin-right: 6px; }
+.compare-summary--bad { background: var(--c-bad-light); color: var(--c-bad); }
+.compare-summary--bad  p::before { content: '✕'; }
+.compare-summary--good { background: var(--c-good-light); color: #1C7A40; }
+.compare-summary--good p::before { content: '✓'; }
+
+.compare-vs {
+  font-size: var(--t-xl);
+  font-weight: 900;
+  color: var(--c-text-muted);
+  padding: var(--s-2);
+  text-align: center;
+}
+
+/* ============================================================
+   Reason
+   ============================================================ */
+.reason-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  max-width: 800px;
+  margin-inline: auto;
+}
+.reason-item {
+  display: grid;
+  grid-template-columns: 56px 64px 1fr;
+  gap: var(--s-3);
+  align-items: start;
+  background: var(--c-white);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--s-4);
+}
+.reason-num {
+  font-size: var(--t-2xl);
+  font-weight: 900;
+  color: var(--c-brand);
+  line-height: 1;
+  padding-top: 4px;
+  letter-spacing: -0.02em;
+}
+.reason-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-brand-light);
+  border-radius: var(--r-md);
+  color: var(--c-brand);
+  flex-shrink: 0;
+}
+.reason-title {
+  font-size: var(--t-lg);
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.reason-text { font-size: var(--t-sm); color: var(--c-text-sub); line-height: 1.85; }
+
+/* ============================================================
+   Pricing
+   ============================================================ */
+.price-table-wrap { overflow-x: auto; margin-bottom: var(--s-3); }
+.price-table { width: 100%; border-collapse: collapse; font-size: var(--t-sm); }
+.price-table thead tr { background: var(--c-dark); color: var(--c-white); }
+.price-table th {
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: left;
+}
+.price-table th:last-child { text-align: right; }
+.price-table td {
+  padding: var(--s-2) var(--s-3);
+  border-bottom: 1px solid var(--c-border);
+  vertical-align: middle;
+}
+.price-table tbody tr:hover { background: var(--c-gray-50); }
+.job-type { font-weight: 700; white-space: nowrap; }
+.job-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--c-brand-light);
+  border-radius: var(--r-md);
+  color: var(--c-brand);
+  margin-bottom: 6px;
+}
+.price-cell { text-align: right; white-space: nowrap; }
+.price-cell strong { font-size: var(--t-lg); font-weight: 900; color: var(--c-brand-dark); }
+.price-note { font-size: var(--t-xs); color: var(--c-text-muted); text-align: center; }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-list {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.faq-item {
+  background: var(--c-white);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: border-color var(--tr);
+}
+.faq-item.is-open { border-color: var(--c-brand); }
+
+.faq-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  text-align: left;
+  padding: var(--s-3);
+  background: var(--c-white);
+  transition: background var(--tr);
+  cursor: pointer;
+}
+.faq-btn:hover       { background: var(--c-gray-50); }
+.faq-btn.is-expanded { background: var(--c-gray-50); }
+
+.faq-q-mark {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-brand);
+  color: var(--c-white);
+  font-size: var(--t-sm);
+  font-weight: 900;
+  border-radius: 50%;
+}
+.faq-question-text { flex: 1; font-size: var(--t-base); font-weight: 700; color: var(--c-text); }
+.faq-icon { flex-shrink: 0; color: var(--c-brand); transition: transform var(--tr); }
+.faq-btn.is-expanded .faq-icon { transform: rotate(180deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+}
+.faq-answer.is-open { max-height: 400px; }
+
+.faq-answer-inner {
+  padding: 0 var(--s-3) var(--s-3);
+  border-top: 1px solid var(--c-border);
+}
+.faq-answer p {
+  font-size: var(--t-sm);
+  color: var(--c-text-sub);
+  line-height: 1.85;
+  padding-top: var(--s-2);
+  padding-left: 40px;
+}
+
+/* ============================================================
+   Message
+   ============================================================ */
+.message-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--s-6);
+  align-items: start;
+  max-width: 800px;
+  margin-inline: auto;
+}
+.message-photo { flex-shrink: 0; }
+.message-photo-placeholder {
+  width: 180px;
+  height: 220px;
+  background: var(--c-gray-100);
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-gray-400);
+}
+.message-title { font-size: var(--t-xl); font-weight: 900; margin-bottom: var(--s-3); }
+.message-text { display: flex; flex-direction: column; gap: var(--s-2); margin-bottom: var(--s-3); }
+.message-text p { font-size: var(--t-sm); color: var(--c-text-sub); line-height: 1.9; }
+.message-author { padding-top: var(--s-2); border-top: 1px solid var(--c-border); }
+.message-name { font-size: var(--t-lg); font-weight: 700; }
+.message-company { font-size: var(--t-sm); color: var(--c-text-muted); }
+
+/* ============================================================
+   LINE CTA
+   ============================================================ */
+.section-line {
+  background: var(--c-gray-50);
+  padding: var(--s-8) 0;
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+.line-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+.line-title { font-size: var(--t-xl); font-weight: 900; margin-bottom: 8px; }
+.line-lead { font-size: var(--t-sm); color: var(--c-text-sub); }
+
+/* ============================================================
+   CTA Section
+   ============================================================ */
+.section-cta { background: var(--c-dark); padding: var(--s-12) 0; text-align: center; }
+.cta-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 900;
+  color: var(--c-white);
+  line-height: 1.3;
+  margin-bottom: var(--s-2);
+}
+.cta-lead { font-size: var(--t-md); color: rgba(255,255,255,0.65); margin-bottom: var(--s-5); line-height: 1.85; }
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer { background: #111827; padding: var(--s-6) 0 var(--s-4); }
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-logo-area .site-logo { margin-bottom: var(--s-2); display: inline-block; }
+.footer-address { font-size: var(--t-sm); color: rgba(255,255,255,0.45); line-height: 1.8; }
+.footer-address a { color: rgba(255,255,255,0.75); font-weight: 700; transition: color var(--tr); }
+.footer-address a:hover { color: var(--c-white); }
+.footer-nav ul { display: flex; gap: var(--s-3); }
+.footer-nav a { font-size: var(--t-sm); color: rgba(255,255,255,0.55); transition: color var(--tr); }
+.footer-nav a:hover { color: var(--c-white); }
+.footer-bottom { text-align: center; }
+.footer-copy { font-size: var(--t-xs); color: rgba(255,255,255,0.30); }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .system-compare { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+  .compare-vs { text-align: center; }
+  .message-inner { grid-template-columns: 1fr; }
+  .message-photo { display: flex; justify-content: center; }
+  .line-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  .sp-none { display: none; }
+  .sp-only { display: inline; }
+  .header-nav, .header-tel, .btn-header-dl { display: none; }
+  .menu-toggle { display: flex; }
+  .mobile-nav  { display: block; }
+  .hero  { padding: var(--s-10) 0; }
+  .section { padding: var(--s-8) 0; }
+  .reason-item { grid-template-columns: 40px 1fr; grid-template-rows: auto auto; }
+  .reason-num  { grid-row: 1; grid-column: 1; }
+  .reason-icon { grid-row: 1; grid-column: 2; width: 48px; height: 48px; justify-self: end; }
+  .reason-body { grid-row: 2; grid-column: 1 / -1; }
+  .job-icon { display: none; }
+  .footer-inner { flex-direction: column; gap: var(--s-3); }
+  .footer-nav ul { flex-direction: column; gap: var(--s-1); }
+}
+
+@media (max-width: 480px) {
+  :root { --pad: 16px; }
+  .hero-title { font-size: 2rem; }
+  .reason-item { padding: var(--s-3); }
+  .cta-actions { flex-direction: column; align-items: stretch; }
+  .btn-tel-cta { justify-content: center; }
+  .price-table th, .price-table td { padding: 10px 12px; }
+}
+</style>
+
 </head>
 <body>
 
@@ -19,7 +713,7 @@
 <header class="site-header" id="site-header">
   <div class="header-inner">
 
-    <a href="/" class="site-logo" aria-label="entry pay トップページへ">
+    <a href="#" class="site-logo" aria-label="entry pay トップページへ">
       <span class="logo-ep">entry pay</span>
     </a>
 
@@ -50,7 +744,7 @@
       </a>
     </div>
 
-    <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -60,7 +754,7 @@
 </header>
 
 <!-- Mobile nav -->
-<nav class="mobile-nav" aria-label="モバイルナビゲーション">
+<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション">
   <ul>
     <li><a href="https://jp.indeed.com/" target="_blank" rel="noopener" class="mobile-nav-link">Indeed</a></li>
     <li><a href="https://xn--pckua2a7gp15o89zb.com/" target="_blank" rel="noopener" class="mobile-nav-link">求人ボックス</a></li>
@@ -96,7 +790,7 @@
 
 
 <!-- ========================================
-     ABOUT / SYSTEM
+     SYSTEM
 ======================================== -->
 <section class="section section--white" id="system">
   <div class="container">
@@ -115,9 +809,15 @@
           <div class="compare-flow">
             <div class="compare-step">求人を掲載</div>
             <div class="compare-arrow">↓</div>
-            <div class="compare-step compare-step--bad">クリックで課金<br><span class="compare-note">クリックのたびに費用が発生</span></div>
+            <div class="compare-step compare-step--bad">
+              クリックで課金
+              <span class="compare-note">クリックのたびに費用が発生</span>
+            </div>
             <div class="compare-arrow">↓</div>
-            <div class="compare-step compare-step--bad">運用手数料<br><span class="compare-note">毎月の管理費用が発生</span></div>
+            <div class="compare-step compare-step--bad">
+              運用手数料
+              <span class="compare-note">毎月の管理費用が発生</span>
+            </div>
           </div>
           <div class="compare-summary compare-summary--bad">
             <p>クリックが多いほど費用が増加</p>
@@ -132,11 +832,20 @@
         <div class="compare-heading">entry pay</div>
         <div class="compare-body">
           <div class="compare-flow">
-            <div class="compare-step">求人を掲載<br><span class="compare-note compare-note--free">広告費を当社が全額負担</span></div>
+            <div class="compare-step">
+              求人を掲載
+              <span class="compare-note compare-note--free">広告費を当社が全額負担</span>
+            </div>
             <div class="compare-arrow">↓</div>
-            <div class="compare-step">クリックされても無料<br><span class="compare-note compare-note--free">クリック課金は発生しない</span></div>
+            <div class="compare-step">
+              クリックされても無料
+              <span class="compare-note compare-note--free">クリック課金は発生しない</span>
+            </div>
             <div class="compare-arrow">↓</div>
-            <div class="compare-step compare-step--good">応募が来たら課金<br><span class="compare-note">1応募 2,970円〜</span></div>
+            <div class="compare-step compare-step--good">
+              応募が来たら課金
+              <span class="compare-note">1応募 2,970円〜</span>
+            </div>
           </div>
           <div class="compare-summary compare-summary--good">
             <p>応募が来るまで完全無料</p>
@@ -151,7 +860,7 @@
 
 
 <!-- ========================================
-     REASON — entry payが選ばれる4つの理由
+     REASON
 ======================================== -->
 <section class="section section--gray" id="reason">
   <div class="container">
@@ -165,41 +874,35 @@
       <li class="reason-item">
         <div class="reason-num">01</div>
         <div class="reason-icon" aria-hidden="true">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
+            <path d="M12 8v4l3 3"/>
           </svg>
         </div>
         <div class="reason-body">
           <h3 class="reason-title">最安値宣言！</h3>
-          <p class="reason-text">
-            他社の応募課金サービスよりも高い場合、その金額より安くご提供します。
-            entry payは業界最安値での応募課金サービスを宣言しています。
-          </p>
+          <p class="reason-text">他社の応募課金サービスよりも高い場合、その金額より安くご提供します。entry payは業界最安値での応募課金サービスを宣言しています。</p>
         </div>
       </li>
 
       <li class="reason-item">
         <div class="reason-num">02</div>
         <div class="reason-icon" aria-hidden="true">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M9 11l3 3L22 4"/>
             <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
           </svg>
         </div>
         <div class="reason-body">
           <h3 class="reason-title">いつでも解約OK</h3>
-          <p class="reason-text">
-            採用が決まったタイミングや、採用活動を止めたいときなど、
-            いつでも自由に解約・掲載停止ができます。最低利用期間や違約金は一切ありません。
-          </p>
+          <p class="reason-text">採用が決まったタイミングや、採用活動を止めたいときなど、いつでも自由に解約・掲載停止ができます。最低利用期間や違約金は一切ありません。</p>
         </div>
       </li>
 
       <li class="reason-item">
         <div class="reason-num">03</div>
         <div class="reason-icon" aria-hidden="true">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
             <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
@@ -207,29 +910,21 @@
         </div>
         <div class="reason-body">
           <h3 class="reason-title">欲しい層だけを課金対象に</h3>
-          <p class="reason-text">
-            年齢や性別など、採用したい人材像を事前に設定。
-            条件に合わない応募は課金対象外にする絞り込み機能で、
-            採用効率を最大化します。
-          </p>
+          <p class="reason-text">年齢や性別など、採用したい人材像を事前に設定。条件に合わない応募は課金対象外にする絞り込み機能で、採用効率を最大化します。</p>
         </div>
       </li>
 
       <li class="reason-item">
         <div class="reason-num">04</div>
         <div class="reason-icon" aria-hidden="true">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="5" width="20" height="14" rx="2"/>
             <path d="M2 10h20"/>
           </svg>
         </div>
         <div class="reason-body">
           <h3 class="reason-title">応募がくるまで完全無料</h3>
-          <p class="reason-text">
-            初期費用・掲載費・預託金など一切不要。
-            応募が届くまでは費用は0円です。
-            始めやすく、リスクなく導入できます。
-          </p>
+          <p class="reason-text">初期費用・掲載費・預託金など一切不要。応募が届くまでは費用は0円です。始めやすく、リスクなく導入できます。</p>
         </div>
       </li>
 
@@ -239,17 +934,14 @@
 
 
 <!-- ========================================
-     PRICING — 人気職種の応募単価
+     PRICING
 ======================================== -->
 <section class="section section--white" id="price">
   <div class="container">
 
     <header class="section-header">
       <h2 class="section-title">人気職種の応募単価</h2>
-      <p class="section-lead">
-        職種・雇用形態によって単価が異なります。<br>
-        詳細はお気軽にお問い合わせください。
-      </p>
+      <p class="section-lead">職種・雇用形態によって単価が異なります。<br>詳細はお気軽にお問い合わせください。</p>
     </header>
 
     <div class="price-table-wrap">
@@ -265,7 +957,7 @@
           <tr>
             <td rowspan="2" class="job-type">
               <div class="job-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
                 </svg>
               </div>
@@ -281,7 +973,7 @@
           <tr>
             <td rowspan="2" class="job-type">
               <div class="job-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <rect x="2" y="3" width="20" height="14" rx="2"/>
                   <path d="M8 21h8M12 17v4"/>
                 </svg>
@@ -298,7 +990,7 @@
           <tr>
             <td rowspan="2" class="job-type">
               <div class="job-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <path d="M3 6h18M3 12h18M3 18h18"/>
                 </svg>
               </div>
@@ -314,7 +1006,7 @@
           <tr>
             <td class="job-type">
               <div class="job-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <line x1="18" y1="20" x2="18" y2="10"/>
                   <line x1="12" y1="20" x2="12" y2="4"/>
                   <line x1="6"  y1="20" x2="6"  y2="14"/>
@@ -361,10 +1053,7 @@
         </dt>
         <dd class="faq-answer">
           <div class="faq-answer-inner">
-            <p>
-              応募が入った時点で課金となります。面接の実施有無は関係ありません。
-              他媒体との費用対効果をしっかり比較された上でご利用いただくことをお勧めします。
-            </p>
+            <p>応募が入った時点で課金となります。面接の実施有無は関係ありません。他媒体との費用対効果をしっかり比較された上でご利用いただくことをお勧めします。</p>
           </div>
         </dd>
       </div>
@@ -383,10 +1072,7 @@
         </dt>
         <dd class="faq-answer">
           <div class="faq-answer-inner">
-            <p>
-              同一求人の同時掲載はIndeed・求人ボックスのルール上できない場合がございます。
-              詳しくはお問い合わせください。
-            </p>
+            <p>同一求人の同時掲載はIndeed・求人ボックスのルール上できない場合がございます。詳しくはお問い合わせください。</p>
           </div>
         </dd>
       </div>
@@ -405,10 +1091,7 @@
         </dt>
         <dd class="faq-answer">
           <div class="faq-answer-inner">
-            <p>
-              応募数の保証はできかねますが、求人票をご提供いただければ
-              課金額の見込みをご回答することが可能です。詳しくはお問い合わせください。
-            </p>
+            <p>応募数の保証はできかねますが、求人票をご提供いただければ課金額の見込みをご回答することが可能です。詳しくはお問い合わせください。</p>
           </div>
         </dd>
       </div>
@@ -427,10 +1110,7 @@
         </dt>
         <dd class="faq-answer">
           <div class="faq-answer-inner">
-            <p>
-              資格が必須な職種（医師・看護師・薬剤師など）については、
-              クリック課金のみの対応となります。詳しくはお問い合わせください。
-            </p>
+            <p>資格が必須な職種（医師・看護師・薬剤師など）については、クリック課金のみの対応となります。詳しくはお問い合わせください。</p>
           </div>
         </dd>
       </div>
@@ -441,7 +1121,7 @@
 
 
 <!-- ========================================
-     MESSAGE — 責任者からのご挨拶
+     MESSAGE
 ======================================== -->
 <section class="section section--white" id="message">
   <div class="container">
@@ -458,19 +1138,9 @@
       <div class="message-body">
         <h2 class="message-title">サービス責任者より</h2>
         <div class="message-text">
-          <p>
-            entry payは「採用費のリスクをゼロにしたい」という想いからスタートしました。
-            求人広告に多額の費用をかけても応募が来ない、という状況は採用担当者の方にとって
-            大きなストレスになります。
-          </p>
-          <p>
-            私たちは収益性を追わず、お客様の採用成功を最優先に考えています。
-            2022年9月時点での赤字案件率は22%ですが、それでもお客様の採用コスト削減を
-            最優先に取り組んでいます。
-          </p>
-          <p>
-            まずはお気軽にご相談ください。
-          </p>
+          <p>entry payは「採用費のリスクをゼロにしたい」という想いからスタートしました。求人広告に多額の費用をかけても応募が来ない、という状況は採用担当者の方にとって大きなストレスになります。</p>
+          <p>私たちは収益性を追わず、お客様の採用成功を最優先に考えています。2022年9月時点での赤字案件率は22%ですが、それでもお客様の採用コスト削減を最優先に取り組んでいます。</p>
+          <p>まずはお気軽にご相談ください。</p>
         </div>
         <div class="message-author">
           <p class="message-name">野口 一仁</p>
@@ -494,9 +1164,9 @@
         <p class="line-lead">LINEからでもお気軽にお問い合わせいただけます。</p>
       </div>
       <div class="line-action">
-        <a href="https://lin.ee/example" target="_blank" rel="noopener noreferrer" class="btn-line">
-          <svg class="line-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.04 2 11c0 3.18 1.7 5.98 4.3 7.66L5.5 22l3.82-2.03C10.2 20.3 11.08 20.5 12 20.5c5.52 0 10-4.04 10-9S17.52 2 12 2z"/>
+        <a href="#" class="btn-line">
+          <svg class="line-icon" width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+            <path d="M24 4C12.95 4 4 11.82 4 21.42c0 6.48 4.14 12.14 10.4 15.44-.45 1.65-1.65 5.98-1.89 6.9-.3 1.15.43 1.13 1 .79.44-.27 5.9-3.92 8.3-5.5.72.1 1.46.15 2.19.15 11.05 0 20-7.82 20-17.42S35.05 4 24 4z"/>
           </svg>
           LINE 友だち追加
         </a>
@@ -507,15 +1177,12 @@
 
 
 <!-- ========================================
-     CTA / CONTACT
+     CTA
 ======================================== -->
 <section class="section-cta" id="contact">
   <div class="container">
     <h2 class="cta-title">まずはお気軽に<br class="sp-only">ご相談ください</h2>
-    <p class="cta-lead">
-      サービス資料のダウンロードや、ご相談はこちらから。<br>
-      お電話でも受け付けております。
-    </p>
+    <p class="cta-lead">サービス資料のダウンロードや、ご相談はこちらから。<br>お電話でも受け付けております。</p>
     <div class="cta-actions">
       <a href="https://www.canva.com/design/DAFl9X-YnuM/view" target="_blank" rel="noopener noreferrer" class="btn-dl btn-dl--lg">
         サービス資料をダウンロード
@@ -541,7 +1208,7 @@
     <div class="footer-inner">
 
       <div class="footer-logo-area">
-        <a href="/" class="site-logo site-logo--white" aria-label="entry pay トップページへ">
+        <a href="#" class="site-logo site-logo--white" aria-label="entry pay トップページへ">
           <span class="logo-ep logo-ep--white">entry pay</span>
         </a>
         <address class="footer-address">
@@ -552,8 +1219,8 @@
 
       <nav class="footer-nav" aria-label="フッターナビゲーション">
         <ul>
-          <li><a href="/company">会社概要</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">お問い合わせ</a></li>
         </ul>
       </nav>
 
@@ -565,6 +1232,66 @@
 </footer>
 
 
-<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* Header scroll shadow */
+  var header = document.getElementById('site-header');
+  if (header) {
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+  }
+
+  /* Mobile navigation */
+  var toggle    = document.getElementById('menu-toggle');
+  var mobileNav = document.getElementById('mobile-nav');
+
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.classList.toggle('is-open');
+      mobileNav.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        toggle.classList.remove('is-open');
+        mobileNav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      var item   = btn.closest('.faq-item');
+      var answer = item.querySelector('.faq-answer');
+
+      /* close all others */
+      document.querySelectorAll('.faq-btn').forEach(function (other) {
+        if (other === btn) return;
+        other.setAttribute('aria-expanded', 'false');
+        other.classList.remove('is-expanded');
+        other.closest('.faq-item').classList.remove('is-open');
+        other.closest('.faq-item').querySelector('.faq-answer').classList.remove('is-open');
+      });
+
+      /* toggle current */
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      btn.classList.toggle('is-expanded', !isExpanded);
+      item.classList.toggle('is-open', !isExpanded);
+      answer.classList.toggle('is-open', !isExpanded);
+    });
+  });
+
+}());
+</script>
+
 </body>
 </html>
